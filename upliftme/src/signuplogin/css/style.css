@@ -35,6 +35,14 @@
 			border-color: #ff4931;
 			background: #ff4931;
 		}
+		.main .move button.dark{
+			border-color: #e0b722;
+			background: #e0b722;
+		}
+		/* type selector */
+		.main .splits p{
+			font-size: 18px;
+		}
 		.main button:active{
 			box-shadow: none;			
 		}
@@ -72,10 +80,6 @@
 			/* css function to reposition horizontally or vertically*/
 			transform: translateY(-80%) translateX(100%);
       visibility: hidden;
-		}
-		.main .wrapper.move #register{
-			transform: translateY(-80%) translateX(0%);
-      visibility: visible;
 		}
 		.main .wrapper.move #register{
 			transform: translateY(-80%) translateX(0%);

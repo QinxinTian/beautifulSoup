@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import ReactDOM from 'react-dom';
 // import queryString from 'query-string';
 // import ReactPlayer from 'react-player';
@@ -20,7 +21,7 @@ import '../../styles/style.css';
 import Playlists from './Playlists.js';
 import SpotifyIcon from './SpotifyIcon.js';
 // import goBack from './../../assets/goback.png';
-
+import Login from './Login.js';
 import '../../styles/first_media.css';
 import '../../styles/second_media.css';
 // {/* import HoverImage from "react-hover-image"; */}
@@ -51,7 +52,65 @@ let user_data={
 
 const frontendUri = 'http://localhost:3000';
 const backendUri = 'http://localhost:8888';
-
+const Index = () => {
+  return (
+    <div className="App">
+      {
+        window.location.href=== frontendUri+'/Happy' ?
+          <div style={{'backgroundColor':'#6600ff'}}>
+          <div style={{'textAlign': 'center','fontSize': '50px'}}>
+            <header className = "logo-header">
+            </header>
+            <Playlists  mood={'happy'} />
+          </div>
+          </div>
+        :
+        window.location.href===frontendUri+'/Sad' ?
+          <div style={{'backgroundColor':'#6600ff'}}>
+          <div style={{'textAlign': 'center','fontSize': '50px'}}>
+            <header className = "logo-header">
+            </header>
+            <Playlists  mood={'sad'} />
+          </div>
+          </div>
+        :
+        window.location.href===frontendUri+'/Angry' ?
+          <div style={{'backgroundColor':'#6600ff'}}>
+          <div style={{'textAlign': 'center','fontSize': '50px'}}>
+            <header className = "logo-header">
+            </header>
+            <Playlists  mood={'angry'} />
+          </div>
+          </div>
+        :
+        window.location.href===frontendUri+'/Chill' ?
+          <div style={{'backgroundColor':'#6600ff'}}>
+          <div style={{'textAlign': 'center','fontSize': '50px'}}>
+            <header className = "logo-header">
+            </header>
+            <Playlists  mood={'chill'} />
+          </div>
+          </div>
+        :
+        <div>
+          <header className ="logo-header">
+            <ReloadItSelf/>
+            <div id = 'info-to-right2'>
+              <div className ="signin-btn"
+               style={{ display: 'flex',
+                justifyContent: 'center' }}
+               onClick={()=> window.location.href='/login'}>
+                Login/Signup
+              </div>
+            </div>
+            <SpotifyIcon data='Connect with Spotify' img={Spotify}/>
+          </header>
+          <Header/>
+        </div>
+      }
+    </div>
+  )
+}
 class App extends Component {
   constructor(props){
     super(props);
@@ -75,59 +134,16 @@ class App extends Component {
  //{/*Things before the colon is when the condition hold true else it is false and it goes to the else clause. */}
  render() {
    return (
-     <div className="App">
-     {
-      
-        window.location.href=== frontendUri+'/Happy' ?
-          <div style={{'backgroundColor':'#6600ff'}}>
-           <div style={{'textAlign': 'center','fontSize': '50px'}}>
-             <header className = "logo-header">
-             </header>
-             <Playlists  mood={'happy'} />
-           </div>
-          </div>
-        :
-
-        window.location.href===frontendUri+'/Sad' ?
-          <div style={{'backgroundColor':'#6600ff'}}>
-           <div style={{'textAlign': 'center','fontSize': '50px'}}>
-             <header className = "logo-header">
-             </header>
-             <Playlists  mood={'sad'} />
-           </div>
-          </div>
-        :
-
-        window.location.href===frontendUri+'/Angry' ?
-          <div style={{'backgroundColor':'#6600ff'}}>
-           <div style={{'textAlign': 'center','fontSize': '50px'}}>
-             <header className = "logo-header">
-             </header>
-             <Playlists  mood={'angry'} />
-           </div>
-          </div>
-        :
-
-        window.location.href===frontendUri+'/Chill' ?
-          <div style={{'backgroundColor':'#6600ff'}}>
-           <div style={{'textAlign': 'center','fontSize': '50px'}}>
-             <header className = "logo-header">
-             </header>
-             <Playlists  mood={'chill'} />
-           </div>
-          </div>
-        :
-
-          <div>
-           <header className ="logo-header">
-             <ReloadItSelf/>
-             <SpotifyIcon data='Connect with Spotify' img={Spotify}/>
-           </header>
-           <Header/>
-          </div>
-     
-     }
-     </div>
+    <Router>
+      <div>
+        <Route path="/" exact component={Index} />
+        <Route path="/Happy" exact component={Index} />
+        <Route path="/Chill" exact component={Index} />
+        <Route path="/Sad" exact component={Index} />
+        <Route path="/Angry" exact component={Index} />
+        <Route path="/login" exact component={Login} />
+      </div>
+     </Router>
    );
  }
 }

@@ -52,4 +52,34 @@ class Login extends Component {
 				console.log(err);
 			})
 	}
+	render() {
+		return (
+			<div style={{ backgroundImage: `url(${background})`, height: '100vh' }} className="body">
+				<div className="main-form">
+					<div className="login-btn splits">
+						<p>Already an user?</p>
+						<button className="active">Login</button>
+					</div>
+					<div className="rgstr-btn splits">
+						<p>Don't have an account?</p>
+						<button>Register</button>
+					</div>
+					<div className="wrapper">
+						<form id="login" onSubmit={this.login} tabIndex="500">
+							<h3>Login</h3>
+							<div className="mail">
+								<input type="mail" name="email" required />
+								<label>Email</label>
+							</div>
+							<div className="passwd">
+								<input type="password" name="password" required />
+								<label>Password</label>
+							</div>
+							<div className="submit">
+								<button className="dark">Login</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 export default Login;

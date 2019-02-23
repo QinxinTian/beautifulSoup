@@ -79,7 +79,30 @@ class Login extends Component {
 								<button className="dark">Login</button>
 							</div>
 						</form>
+						<form id="register" onSubmit={this.register} tabIndex="502">
+							<h3>Register</h3>
+							<div className="name">
+								<input type="text" name="userName" required />
+								<label>Username</label>
+							</div>
+							<div className="mail">
+								<input type="mail" name="email" required />
+								<label>Email</label>
+							</div>
+							<div className="passwd">
+								<input type="password" name="password" required />
+								<label>Password</label>
+							</div>
+							<div className="submit">
+								<button className="dark">Register</button>
+							</div>
+						</form>
 					</div>
 				</div>
+				<script src="../index.js" ></script>
 			</div>
+			);
+		}
+	}
+	
 export default Login;

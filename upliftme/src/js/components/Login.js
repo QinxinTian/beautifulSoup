@@ -1,3 +1,4 @@
+//when triggering the login event, fetch data of login.
 import React, { Component } from 'react';
 
 class Login extends Component {

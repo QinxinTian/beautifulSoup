@@ -19,6 +19,7 @@ import Header from './Header.js';   //{/* This line imports the Header component
 // {/* import TrackPlayer from 'react-native-track-player'; */}
 import '../../styles/style.css';
 import Playlists from './Playlists.js';
+import Profile from './Profile.js';
 import SpotifyIcon from './SpotifyIcon.js';
 // import goBack from './../../assets/goback.png';
 import Login from './Login.js';
@@ -142,6 +143,7 @@ class App extends Component {
         <Route path="/Sad" exact component={Index} />
         <Route path="/Angry" exact component={Index} />
         <Route path="/login" exact component={Login} />
+        <Route path="/profile" exact component={Profile} />
       </div>
      </Router>
    );
